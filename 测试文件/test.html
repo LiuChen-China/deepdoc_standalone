@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电商销售数据分析报告</title>
+    <!-- 引入Tailwind CSS用于样式（无需本地文件，CDN加载） -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Chart.js用于数据可视化 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 自定义样式 -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        .analysis-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .metric-box {
+            background: #e0f2fe;
+            border-left: 4px solid #0284c7;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-6">
+    <div class="max-w-7xl mx-auto">
+        <!-- 标题部分 -->
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">2024年Q3电商销售数据分析报告</h1>
+            <p class="text-gray-600">数据周期：2024年7月-9月 | 分析维度：品类、地区、销售额、增长率</p>
+        </header>
+
+        <!-- 关键指标概览 -->
+        <section class="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="metric-box p-4 rounded">
+                <h3 class="text-lg font-semibold text-gray-700">总销售额</h3>
+                <p class="text-2xl font-bold text-blue-600">¥2,856,900</p>
+                <p class="text-sm text-gray-500">环比增长 12.5%</p>
+            </div>
+            <div class="metric-box p-4 rounded">
+                <h3 class="text-lg font-semibold text-gray-700">客单价</h3>
+                <p class="text-2xl font-bold text-blue-600">¥389</p>
+                <p class="text-sm text-gray-500">环比增长 4.2%</p>
+            </div>
+            <div class="metric-box p-4 rounded">
+                <h3 class="text-lg font-semibold text-gray-700">订单量</h3>
+                <p class="text-2xl font-bold text-blue-600">7,344</p>
+                <p class="text-sm text-gray-500">环比增长 8.1%</p>
+            </div>
+        </section>
+
+        <!-- 核心数据表格 -->
+        <section class="mb-8 analysis-card p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">各品类销售明细</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                    <thead class="bg-gray-100 text-gray-700">
+                        <tr>
+                            <th class="py-3 px-4 text-left">品类</th>
+                            <th class="py-3 px-4 text-right">7月销售额(¥)</th>
+                            <th class="py-3 px-4 text-right">8月销售额(¥)</th>
+                            <th class="py-3 px-4 text-right">9月销售额(¥)</th>
+                            <th class="py-3 px-4 text-right">季度总额(¥)</th>
+                            <th class="py-3 px-4 text-right">季度增长率</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="py-3 px-4 font-medium">电子产品</td>
+                            <td class="py-3 px-4 text-right">320,500</td>
+                            <td class="py-3 px-4 text-right">358,200</td>
+                            <td class="py-3 px-4 text-right">410,800</td>
+                            <td class="py-3 px-4 text-right">1,089,500</td>
+                            <td class="py-3 px-4 text-right text-green-600">+28.2%</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-medium">服装鞋帽</td>
+                            <td class="py-3 px-4 text-right">215,800</td>
+                            <td class="py-3 px-4 text-right">240,500</td>
+                            <td class="py-3 px-4 text-right">268,300</td>
+                            <td class="py-3 px-4 text-right">724,600</td>
+                            <td class="py-3 px-4 text-right text-green-600">+24.3%</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-medium">家居用品</td>
+                            <td class="py-3 px-4 text-right">180,200</td>
+                            <td class="py-3 px-4 text-right">195,700</td>
+                            <td class="py-3 px-4 text-right">208,400</td>
+                            <td class="py-3 px-4 text-right">584,300</td>
+                            <td class="py-3 px-4 text-right text-green-600">+15.7%</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-medium">食品生鲜</td>
+                            <td class="py-3 px-4 text-right">128,500</td>
+                            <td class="py-3 px-4 text-right">135,800</td>
+                            <td class="py-3 px-4 text-right">134,200</td>
+                            <td class="py-3 px-4 text-right">398,500</td>
+                            <td class="py-3 px-4 text-right text-green-600">+4.4%</td>
+                        </tr>
+                        <tr class="bg-gray-50 font-medium">
+                            <td class="py-3 px-4">合计</td>
+                            <td class="py-3 px-4 text-right">845,000</td>
+                            <td class="py-3 px-4 text-right">930,200</td>
+                            <td class="py-3 px-4 text-right">1,021,700</td>
+                            <td class="py-3 px-4 text-right">2,796,900</td>
+                            <td class="py-3 px-4 text-right text-green-600">+20.9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 数据可视化图表 -->
+        <section class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- 月度销售额趋势图 -->
+            <div class="analysis-card p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">月度销售额趋势</h2>
+                <div class="h-80">
+                    <canvas id="salesTrendChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 品类销售额占比图 -->
+            <div class="analysis-card p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">品类销售额占比</h2>
+                <div class="h-80">
+                    <canvas id="categoryPieChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据分析解读 -->
+        <section class="analysis-card p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">数据分析结论</h2>
+            <div class="space-y-4 text-gray-700">
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">1. 整体表现</h3>
+                    <p>2024年Q3整体销售额达到¥2,856,900，环比Q2增长12.5%，订单量和客单价均实现正向增长，整体业务呈现良好的上升趋势。</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">2. 品类表现</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>电子产品表现最为突出，季度增长率达28.2%，9月销售额创单月新高，主要得益于新品上市和促销活动。</li>
+                        <li>服装鞋帽增长稳健，季度增长率24.3%，符合换季消费的季节性特征。</li>
+                        <li>家居用品增长平稳，增长率15.7%，市场需求相对稳定。</li>
+                        <li>食品生鲜增长缓慢（4.4%），主要受产品保质期和供应链限制影响。</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">3. 关键洞察与建议</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>建议加大电子产品品类的营销投入，重点推广高毛利新品。</li>
+                        <li>服装鞋帽品类可结合四季度节日消费特点，提前规划促销活动。</li>
+                        <li>食品生鲜品类需优化供应链，提升配送效率以促进销售增长。</li>
+                        <li>整体客单价仍有提升空间，可通过组合套餐、满减活动等方式提高单次消费金额。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="mt-10 text-center text-gray-500 text-sm">
+            <p>数据分析报告生成时间：2024年10月1日 | 数据来源：公司销售系统</p>
+        </footer>
+    </div>
+
+    <!-- 图表初始化脚本 -->
+    <script>
+        // 月度销售额趋势图
+        const trendCtx = document.getElementById('salesTrendChart').getContext('2d');
+        new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['7月', '8月', '9月'],
+                datasets: [
+                    {
+                        label: '电子产品',
+                        data: [320500, 358200, 410800],
+                        borderColor: '#0284c7',
+                        backgroundColor: 'rgba(2, 132, 199, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        label: '服装鞋帽',
+                        data: [215800, 240500, 268300],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        label: '家居用品',
+                        data: [180200, 195700, 208400],
+                        borderColor: '#f59e0b',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        label: '食品生鲜',
+                        data: [128500, 135800, 134200],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '¥' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 品类销售额占比图
+        const pieCtx = document.getElementById('categoryPieChart').getContext('2d');
+        new Chart(pieCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['电子产品', '服装鞋帽', '家居用品', '食品生鲜'],
+                datasets: [{
+                    data: [1089500, 724600, 584300, 398500],
+                    backgroundColor: [
+                        '#0284c7',
+                        '#10b981',
+                        '#f59e0b',
+                        '#ef4444'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = context.raw;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return `${context.label}: ¥${value.toLocaleString()} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
