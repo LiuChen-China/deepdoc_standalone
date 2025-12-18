@@ -27,6 +27,8 @@ docker compose up -d
 ```
 sudo apt install -y libssl-dev openssl
 ```
+## 配置
+- 配置文件为common/settings.py
 ## 接口
 - 解析文档接口，查看脚本deepdoc_api.py
 - 文档格式转换接口，查看脚本deepdoc/parser/libreoffice_convert.py

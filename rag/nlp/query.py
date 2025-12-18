@@ -369,5 +369,5 @@ if __name__ == "__main__":
     5. 添加同义词扩展
     6. 构建匹配表达式
     '''
-    matchExpr,keywords = f.question("请问ISIM chat这个系统是干嘛的")
+    matchExpr,keywords = f.question("请问这个系统是干嘛的")
     pass
