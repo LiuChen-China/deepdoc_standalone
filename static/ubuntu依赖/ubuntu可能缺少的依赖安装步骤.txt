@@ -1,0 +1,4 @@
+sudo dpkg -i libssl1.1_1.1.1-1ubuntu2.1~18.04.23_amd64.deb
+sudo dpkg -i libexif12_0.6.24-1build1_amd64.deb
+dpkg -i libgif7_5.1.9-2ubuntu0.1_amd64.deb
+dpkg -i libgdiplus_6.0.4+dfsg-2_amd64.deb
